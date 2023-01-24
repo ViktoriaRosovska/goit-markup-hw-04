@@ -16,6 +16,9 @@
   --main-title-font-size: 20px;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
+
+  --items: 3;
+  --indent: 24px;
 }
 
 /** ============================== /Description of variables ============================== **/
@@ -41,6 +44,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  /* outline: 1px solid blue; */
 }
 
 /* desing logo */
@@ -84,7 +88,6 @@
   padding-top: 120px;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .section-colored {
@@ -128,6 +131,7 @@
 .paragraph {
   margin-top: 0;
   margin-bottom: 0;
+  letter-spacing: 0.02em;
 }
 
 .list-img {
@@ -153,6 +157,7 @@
   border-radius: 4px;
   background-color: var(--accent-color);
   color: var(--primary-white-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .15);
 
   cursor: pointer;
 }
@@ -181,6 +186,9 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   border-bottom: 1px solid var(--alternative-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, .08),
+    0px 1px 1px rgba(46, 47, 66, .16),
+    0px 1px 6px rgba(46, 47, 66, .08);
 }
 
 .nav-list {
@@ -267,6 +275,7 @@ section.hero {
   padding-bottom: 188px;
   padding-top: 188px;
   background-color: var(--primary-page-color);
+  background-image: url(../images/hero/background-people-office.jpg);
   color: var(--primary-white-color);
 }
 
@@ -292,14 +301,29 @@ section.hero {
 
   margin-top: 0;
   margin-bottom: 0;
+  margin-right: -24px;
 
   display: flex;
-  justify-content: space-between;
+
   text-align: left;
 }
 
 .features-list .list-item {
-  min-width: 264px;
+  --items: 4;
+  --indent: 24px;
+  flex-basis: calc((100% - (var(--items)-1) * var(--indent)) / var(--items));
+  margin-right: 24px;
+}
+
+.features-list .list-item:last-child {
+  margin-right: 0;
+}
+
+.features-list .feature-icon {
+  margin-bottom: 8px;
+  height: 112px;
+  background-color: var(--light-accent-color);
+  border-radius: 4px;
 }
 
 /** ============================== /FEATURES ============================== **/
@@ -310,12 +334,22 @@ section.hero {
 }
 
 .work-container .work-list {
+  --items: 3;
+  --indent: 24px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
-
+  margin-right: -24px;
   display: flex;
-  gap: 24px;
+}
+
+.work-list .list-item {
+  flex-basis: calc((100% - (var(--items)-1) * var(--indent)) / var(--items));
+  margin-right: 24px;
+}
+
+.work-list .list-item:last-child {
+  margin-right: 0;
 }
 
 .work-list .list-img {
@@ -329,16 +363,28 @@ section.hero {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
-
+  margin-right: -24px;
   display: flex;
 }
 
 .team-list .list-item {
-  width: 264px;
+  --items: 4;
+  --indent: 24px;
+  flex-basis: calc((100% - (var(--items)-1) * var(--indent)) / var(--items));
   margin-right: 24px;
   text-align: center;
 
   background-color: var(--primary-white-color);
+}
+
+.team-list .list-item:last-child {
+  margin-right: 0;
+}
+
+.team-list .thumb {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, .08),
+    0px 1px 1px rgba(46, 47, 66, .16),
+    0px 2px 1px rgba(46, 47, 66, .08);
 }
 
 /** ============================== /TEAM ============================== **/
@@ -387,6 +433,9 @@ section.hero {
 .btnfilter:focus {
   background-color: var(--hover-accent-color);
   color: var(--primary-white-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio-list {
@@ -401,8 +450,17 @@ section.hero {
   column-gap: 24px;
 }
 
-.portfolio-list .list-border {
+
+
+.portfolio-list .thumb {
   text-align: left;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, .08);
+}
+
+.portfolio-list .thumb:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, .08),
+    0px 1px 1px rgba(46, 47, 66, .16),
+    0px 2px 1px rgba(46, 47, 66, .08);
 }
 
 /** ============================== /FILTER ============================== **/
