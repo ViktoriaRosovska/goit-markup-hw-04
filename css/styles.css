@@ -324,7 +324,20 @@ section.hero {
   height: 112px;
   background-color: var(--light-accent-color);
   border-radius: 4px;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
+
+.icon {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+
+}
+
 
 /** ============================== /FEATURES ============================== **/
 
