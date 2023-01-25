@@ -9,6 +9,7 @@
   --primary-white-color: #FFFFFF;
   --light-accent-color: #F4F4FD;
   --alternative-color: #E7E9FC;
+  --icon-customers-color: #8E8F99;
 
   /* typographic variables*/
   --main-font: "Roboto", sans-serif;
@@ -132,7 +133,6 @@
 .paragraph {
   margin-top: 0;
   margin-bottom: 0;
-  letter-spacing: 0.02em;
 }
 
 .list-img {
@@ -141,7 +141,6 @@
 
 .list-border {
   padding: 32px 16px;
-
 
   border: 1px solid var(--alternative-color);
   border-top: none;
@@ -186,10 +185,21 @@ body {
 .section.header {
   padding-top: 0;
   padding-bottom: 0;
-  border-bottom: 1px solid var(--alternative-color);
-  box-shadow: 0px 2px 1px rgba(46, 47, 66, .08),
+  /* border-bottom: 1px solid var(--alternative-color); */
+
+
+  /* box-shadow: 0px 2px 1px rgba(46, 47, 66, .08),
     0px 1px 1px rgba(46, 47, 66, .16),
-    0px 1px 6px rgba(46, 47, 66, .08);
+    0px 1px 6px rgba(46, 47, 66, .08); */
+}
+
+.section.header::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid var(--alternative-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .nav-list {
@@ -207,7 +217,6 @@ body {
 
 .nav-list .site-nav {
   padding-left: 0;
-
 
   display: flex;
 }
@@ -255,6 +264,7 @@ body {
 
 .adress-list .item {
   margin-right: 40px;
+
   display: block;
 }
 
@@ -275,6 +285,7 @@ body {
 section.hero {
   padding-bottom: 188px;
   padding-top: 188px;
+
   background-color: var(--primary-page-color);
   background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero/background-people-office.jpg);
   background-repeat: no-repeat;
@@ -302,7 +313,6 @@ section.hero {
 /** ============================== FEATURES ============================== **/
 .features-list {
   padding-left: 0;
-
   margin-top: 0;
   margin-bottom: 0;
   margin-right: -24px;
@@ -326,27 +336,26 @@ section.hero {
 .features-list .feature-icon {
   margin-bottom: 8px;
   height: 112px;
-  background-color: var(--light-accent-color);
   border-radius: 4px;
+
   object-fit: contain;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  background-color: var(--light-accent-color);
 }
 
 .icon {
   width: 64px;
   height: 64px;
   display: inline-block;
-
 }
-
-
 
 /** ============================== /FEATURES ============================== **/
 
 /** ============================== WORK ============================== **/
+
 .section.work {
   padding-top: 0;
 }
@@ -377,6 +386,7 @@ section.hero {
 /** ============================== /WORK ============================== **/
 
 /** ============================== TEAM ============================== **/
+
 .team-list {
   padding-left: 0;
   margin-top: 0;
@@ -413,7 +423,6 @@ section.hero {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .list-border .icon-list {
@@ -425,8 +434,8 @@ section.hero {
 .icon-list .icon {
   width: 16px;
   height: 16px;
-  display: block;
 
+  display: block;
 }
 
 .team-list .paragraph {
@@ -435,9 +444,7 @@ section.hero {
 
 .icon-list .link:hover {
   background-color: var(--hover-accent-color);
-
 }
-
 
 /** ============================== /TEAM ============================== **/
 
@@ -445,6 +452,8 @@ section.hero {
 
 .customers-list {
   padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   display: flex;
   gap: 24px;
 
@@ -457,22 +466,37 @@ section.hero {
 .customers-list .link {
   width: 168px;
   height: 88px;
-  border: 1px solid #8E8F99;
+  border: 1px solid var(--icon-customers-color);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.customers-list .link:hover,
+.customers-list .link:focus {
+  border-color: var(--hover-accent-color);
+}
+
 .customers-list .icon {
   width: 104px;
   height: 56px;
-  display: inline-block;
+
+  display: block;
+
+  fill: var(--icon-customers-color);
+
+}
+
+.link:hover>.icon,
+.link:focus>.icon {
+  fill: var(--hover-accent-color);
 }
 
 /** ============================== /CUSTOMERS ============================== **/
 
 /** ============================== FILTER ============================== **/
+
 .section.filter {
   padding-top: 96px;
 }
@@ -524,16 +548,24 @@ section.hero {
 .portfolio-list {
   padding-left: 0;
   margin-top: 0;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   flex-wrap: wrap;
-  row-gap: 48px;
-  column-gap: 24px;
+  margin-right: -24px;
+  margin-bottom: -48px;
+  /* row-gap: 48px; */
+  /* column-gap: 24px; */
 }
 
-
+.portfolio-list .list-item {
+  --items: 3;
+  --indent: 48px;
+  flex-basis: calc((100% - (var(--items)-1) * var(--indent)) / var(--items));
+  margin-right: 24px;
+  margin-bottom: 48px;
+}
 
 .portfolio-list .thumb {
   text-align: left;
@@ -552,6 +584,7 @@ section.hero {
 .footer.section {
   padding-bottom: 100px;
   padding-top: 100px;
+
   background-color: var(--primary-page-color);
   color: var(--alternative-color);
 }
@@ -573,14 +606,22 @@ section.hero {
 }
 
 .footer-icon .title {
-  color: var(--primary-white-color);
   margin-bottom: 16px;
   text-align: left;
+
+  color: var(--primary-white-color);
 }
 
 .footer-icon .icon-list {
-  display: flex;
   padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  display: flex;
+}
+
+.footer-icon .list-item:not(:last-child) {
+  margin-right: 16px;
 }
 
 .footer-container {
