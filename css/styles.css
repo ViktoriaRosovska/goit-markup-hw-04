@@ -83,7 +83,7 @@
 }
 
 .section {
-  width: 1440px;
+  max-width: 1440px;
   padding-bottom: 120px;
   padding-top: 120px;
   margin-left: auto;
@@ -100,7 +100,8 @@
 .portfolio-list,
 .team-list,
 .features-list,
-.adress-list {
+.adress-list,
+.list-item {
   list-style: none;
 }
 
@@ -275,7 +276,10 @@ section.hero {
   padding-bottom: 188px;
   padding-top: 188px;
   background-color: var(--primary-page-color);
-  background-image: url(../images/hero/background-people-office.jpg);
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero/background-people-office.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: var(--primary-white-color);
 }
 
@@ -339,6 +343,7 @@ section.hero {
 }
 
 
+
 /** ============================== /FEATURES ============================== **/
 
 /** ============================== WORK ============================== **/
@@ -400,7 +405,72 @@ section.hero {
     0px 2px 1px rgba(46, 47, 66, .08);
 }
 
+.icon-list .link {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.list-border .icon-list {
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-list .icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+
+}
+
+.team-list .paragraph {
+  margin-bottom: 8px;
+}
+
+.icon-list .link:hover {
+  background-color: var(--hover-accent-color);
+
+}
+
+
 /** ============================== /TEAM ============================== **/
+
+/** ============================== CUSTOMERS ============================== **/
+
+.customers-list {
+  padding-left: 0;
+  display: flex;
+  gap: 24px;
+
+}
+
+.customers-list .list-item {
+  list-style: none;
+}
+
+.customers-list .link {
+  width: 168px;
+  height: 88px;
+  border: 1px solid #8E8F99;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customers-list .icon {
+  width: 104px;
+  height: 56px;
+  display: inline-block;
+}
+
+/** ============================== /CUSTOMERS ============================== **/
 
 /** ============================== FILTER ============================== **/
 .section.filter {
@@ -489,6 +559,7 @@ section.hero {
 .footer-description {
   width: 264px;
   text-align: left;
+  margin-right: 120px;
 }
 
 .webstudio-logo.white-logo {
@@ -499,6 +570,31 @@ section.hero {
 
 .footer-description .paragraph {
   margin-bottom: 0;
+}
+
+.footer-icon .title {
+  color: var(--primary-white-color);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.footer-icon .icon-list {
+  display: flex;
+  padding-left: 0;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.footer-icon .link {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /** ============================== /FOOTER ============================== **/
